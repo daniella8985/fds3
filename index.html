@@ -1,0 +1,167 @@
+<html>
+ <head>
+      <style>
+          
+        *{
+            margin: 0;
+            padding: 0;
+         }
+         #display{
+                 background-color: #bdecb6;
+                 color: #000000;
+         }
+
+          tr input {
+                    width: 50;
+                    height: 50;
+                    font-size: 20;
+                    margin: 2;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    border-color: white;
+                    text-decoration: none;
+                    color: #ffffff;
+                    background: linear-gradient(to right, #03bb85, #008000)
+        }
+           tr input:hover{
+           background: rgb(57, 64, 71) 
+           }   
+
+
+
+      .display{
+            width: 217;
+            margin: 5;
+            font-size: 35;
+            padding: 5;
+            border-radius: 10px;
+            border-color: black;
+}
+     .container{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);                                                                                                                                                                   
+      }
+
+     .background{
+     background-color: rgb(78, 143, 96);
+     height: 100%                                                      
+     }
+     </style>
+</head>
+ <body>
+      <div class="background"> 
+       
+       <div class="container">
+        <div name="formulario">
+         <input disabled id="display" class="display" />                                                                                                             
+     
+      </div>
+
+       <table>
+           <tr>
+             <td>     
+                <input type="button" value="C" onclick= "clearAll(this)"/>
+             </td>
+             <td>
+                   <input type="button" value="BK" onclick="backAction()" />
+                </td>
+                <td>
+                    <input type="button" value="/" onclick="insert(this)" />
+                </td>
+                <td>
+                    <input type="button" value="X" onclick="insert(this)"  />                                                          
+                 </td>
+               </tr>
+               
+               <tr>
+                  <td>  
+                     <input type="button" value="7" onclick="insert(this)" />
+                    </td>
+                   <td>
+                     <input type="button" value="8" onclick="insert(this)" />
+                    </td>
+                    <td>
+                     <input type="button" value="9" onclick="insert(this)"  />
+                    </td>
+                    <td> 
+                     <input type="button" value="-" onclick="insert(this)" />
+                    </td>
+                    </tr>
+            
+                    <tr>  
+                     <td>
+                       <input type="button" value="4" onclick="insert(this)" />
+                      </td>
+                      <td>
+                      <input type="button" value="5" onclick="insert(this)" />
+                      </td>
+                      <td>
+                     <input type="button" value="6" onclick="insert(this)" />
+                     </td>
+                     <td> 
+                     <input type="button" value="+" onclick="insert(this)" />
+                   
+                  </tr>
+                  
+                  <tr>
+                     <td>
+                          <input type="button" value="1" onclick="insert(this)" />
+                      </td>
+                      <td>
+                           <input type="button" value="2" onclick="insert(this)" />
+                      </td>
+                      <td>
+                           <input type="button" value="3" onclick="insert(this)" />
+                     </td>
+                     <td rowspan="5"> 
+                        <input type="button" style="height: 106;" value="=" onclick="equals()" />
+                   </td>
+                  </tr>
+                  <tr>           
+                 <td colspan="2">
+                  <input type="button" style="width: 100%;" value="0" onclick="insert(this)" />
+                  </td>
+                   
+                   <td rowspan="5">
+                  <input type="button" value="." onclick="insert(this)" />
+                </td>
+                </tr>
+             </table>
+        </div>
+          </div>
+      </div>
+
+      <script>
+
+        function insert(component){
+                const display = document.getElementById("display")
+                display.value = display.value + component.value
+        }
+
+        function equals(){
+                 const display = document.getElementById("display")
+                 if(display){
+                         display.value = eval(display.value)
+                 }
+        }
+ 
+        function clearAll(){
+                 const display = document.getElementById("display")
+                 display.value = ""
+        }  
+
+        function backAction(){
+               const display = document.getElementById("display")
+               display.value = display.value.substring(0, display.value.length - 1)
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>
